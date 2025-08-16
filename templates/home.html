@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yangiliklar</title>
+</head>
+<body>
+    {% block content %}
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Ism</th>
+                <th>Familiya</th>
+                <th>Telefon</th>
+                <th>Rasm</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for person in person %}
+            <tr>
+                <td>{{ person.first_name }}</td>
+                <td>{{ person.last_name }}</td>
+                <td>{{ person.phone }}</td>
+                <td>
+                    {% if person.photo %}
+                        <img src="{{ person.photo.url }}" alt="Rasm bor" width="100">
+                    {% else %}
+                        Rasm yo‘q
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endblock content %}
+</body>
+<footer>
+    <!-- Footer tarkibi -->
+</footer>
+</html>
